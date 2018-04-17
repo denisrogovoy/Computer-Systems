@@ -33,10 +33,10 @@ namespace ConsoleAppTask2Solve
             divisionInBit = Shift(ConvertToBit(dividend), divisionInBit, out k);
             char[] remainderInBit = GetRemainder(ConvertToBit(dividend), divisionInBit, remainder, k);
 
-            foreach (char t in quotientInBit)
-            {
-                Console.Write(t);
-            }
+            //foreach (char t in quotientInBit)
+            //{
+            //    Console.Write(t);
+            //}
             Console.WriteLine();
             foreach (char t in remainderInBit)
             {
@@ -59,7 +59,7 @@ namespace ConsoleAppTask2Solve
                 j++;
             }
             k = i - j;
-            for(int g=0; g<j; g++)
+            for (int g = 0; g < j; g++)
             {
                 newDivision[g] = '0';
             }
@@ -149,19 +149,42 @@ namespace ConsoleAppTask2Solve
             int k;
             char[] divisionBackup = division;
             division = Shift(dividend, division, out k);
+            Console.WriteLine("k={0}", k);
+            Console.Write("Shift on k right division: ");
+            PrintArray(division);
             char[] divisionInAdditionalCode = Invert(division);
+            Console.Write("-B={0}");
+            PrintArray(divisionInAdditionalCode);
             bufferDividend = Addition(dividend, divisionInAdditionalCode);
-
+            Console.WriteLine();
+            Console.Write("Buffer=A-B: ");
+            PrintArray(bufferDividend);
             quotient = AddToQuotient(bufferDividend, quotient);
+            Console.Write("Quotient: ");
+            PrintList(quotient);
             if (k > 0)
                 for (int i = 0; i < k; i++)
                 {
                     bufferDividend = LeftShift(bufferDividend);
+                    Console.Write("Shift left: ");
+                    PrintArray(bufferDividend);
                     if (bufferDividend[0] == '0')
+                    {
+                        Console.WriteLine("Step {0}, A>0: ", i + 1);
                         bufferDividend = Addition(bufferDividend, divisionInAdditionalCode);
+                        Console.Write("Buffer-B:");
+                        PrintArray(bufferDividend);
+                    }
                     else
+                    {
+                        Console.WriteLine("Step {0}, Buffer<0: ", i + 1);
                         bufferDividend = Addition(bufferDividend, division);
+                        Console.Write("Buffer+B:");
+                        PrintArray(bufferDividend);
+                    }
                     quotient = AddToQuotient(bufferDividend, quotient);
+                    Console.Write("Quotient: ");
+                    PrintList(quotient);
                 }
 
             return quotient;
@@ -195,11 +218,17 @@ namespace ConsoleAppTask2Solve
         //Находим остаток
         static char[] GetRemainder(char[] dividend, char[] division, char[] remainder, int k)
         {
+            
             if (remainder[0] == '1')
             {
+                Console.WriteLine();
+                Console.Write("Buffer<0, buffer+B: ");
                 remainder = Addition(remainder, division);
+                PrintArray(remainder);
             }
+            Console.Write("Shift remainder right on k={0}: ", k);
             remainder = ShiftRemainderRight(remainder, k);
+            
 
             return remainder;
         }
@@ -237,6 +266,23 @@ namespace ConsoleAppTask2Solve
             }
 
             return boolArrayOfBits;
+        }
+        static void PrintArray(char[] array)
+        {
+            foreach (char t in array)
+            {
+                Console.Write(t);
+            }
+            Console.WriteLine();
+        }
+
+        static void PrintList(List<char> list)
+        {
+            foreach (char t in list)
+            {
+                Console.Write(t);
+            }
+            Console.WriteLine();
         }
     }
 }

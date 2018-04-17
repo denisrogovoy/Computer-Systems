@@ -149,7 +149,8 @@ namespace ConsoleApp
             int y = 0;
             char[] mInBits = ConvertToBit(m, ref x);
             char[] rInBits = ConvertToBit(r, ref y);
-
+            Console.WriteLine("X={0}", x);
+            Console.WriteLine("Y={0}", y);
             char[] a = new char[x + y + 1], s = new char[x + y + 1], p = new char[x + y + 1];
             //filling A
             int g = 0;
@@ -164,6 +165,8 @@ namespace ConsoleApp
                 //BitConverter.GetBytes()
                 a[i] = '0';
             }
+            Console.Write("Array a: ");
+            PrintArray(a);
             //filling S
             g = x;
             mInBits = Invert(mInBits);
@@ -179,7 +182,8 @@ namespace ConsoleApp
                 //BitConverter.GetBytes()
                 s[i] = '0';
             }
-
+            Console.Write("Array s: ");
+            PrintArray(s);
             //filling P
             g = y;
             for (i = 0; i < x; i++)
@@ -197,7 +201,8 @@ namespace ConsoleApp
                 else
                     p[i] = '0';
             }
-
+            Console.Write("Array p: ");
+            PrintArray(p);
             int counter = 0;
             while (counter != y)
             {
@@ -209,6 +214,8 @@ namespace ConsoleApp
                         p[i] = p[i - 1];
                     }
                     p[0] = '0';
+                    Console.WriteLine("Step {0} (shift right)", counter + 1);
+                    PrintArray(p);
                     counter++;
                     continue;
                 }
@@ -224,6 +231,8 @@ namespace ConsoleApp
                             p[i] = p[i - 1];
                         }
                         p[0] = '1';
+                        Console.WriteLine("Step {0} (a+p & shift right)", counter + 1);
+                        PrintArray(p);
                         counter++;
                         continue;
                     }
@@ -238,13 +247,15 @@ namespace ConsoleApp
                                 p[i] = p[i - 1];
                             }
                             p[0] = '1';
+                            Console.WriteLine("Step {0} (s+p & shift right)", counter + 1);
+                            PrintArray(p);
                             counter++;
                             continue;
                         }
                     }
                 }
             }
-
+            Console.WriteLine("Deleting last bit");
             char[] withDeletedLastBit = new char[x + y];
 
             for (i = x + y - 1; i > 0; i--)
@@ -254,6 +265,14 @@ namespace ConsoleApp
 
             withDeletedLastBit[0] = '1';
             return withDeletedLastBit;
+        }
+        static void PrintArray(char[] array)
+        {
+            foreach (char t in array)
+            {
+                Console.Write(t);
+            }
+            Console.WriteLine();
         }
     }
 }
