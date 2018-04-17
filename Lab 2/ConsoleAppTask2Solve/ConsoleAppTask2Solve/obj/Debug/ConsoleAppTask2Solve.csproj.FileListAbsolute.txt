@@ -1,0 +1,7 @@
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\bin\Debug\ConsoleAppTask2Solve.exe.config
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\bin\Debug\ConsoleAppTask2Solve.exe
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\bin\Debug\ConsoleAppTask2Solve.pdb
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\obj\Debug\ConsoleAppTask2Solve.csprojResolveAssemblyReference.cache
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\obj\Debug\ConsoleAppTask2Solve.csproj.CoreCompileInputs.cache
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\obj\Debug\ConsoleAppTask2Solve.exe
+E:\Университет\3 курс\2 семестр\Комп'ютерні системи\Лабораторна робота №2\ConsoleAppTask2Solve\ConsoleAppTask2Solve\obj\Debug\ConsoleAppTask2Solve.pdb
